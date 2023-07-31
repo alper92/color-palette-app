@@ -36,17 +36,19 @@ export default function Preview({ theme }) {
 }
 
 const Wrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
   --primary: ${({ theme }) => theme.primary};
   --secondary: ${({ theme }) => theme.secondary};
   --tertiary: ${({ theme }) => theme.tertiary};
   background-color: var(--primary);
-  border: 1px solid black;
 `;
 
 const Card = styled.article`
   padding: 1rem;
   background-color: var(--secondary);
-  margin: 1rem;
 `;
 
 const Paragraph = styled.p`

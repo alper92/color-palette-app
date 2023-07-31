@@ -4,7 +4,7 @@ import ColorPicker from "./ColorPicker";
 export default function ColorPickerForm({ theme, setTheme }) {
   return (
     <Wrapper>
-      <h2>Select colors:</h2>
+      <h2>Select colors</h2>
       <ColorPicker
         color={theme.primary}
         onChoose={(newValue) => {
@@ -31,8 +31,8 @@ export default function ColorPickerForm({ theme, setTheme }) {
 }
 
 const Wrapper = styled.section`
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  padding: 1rem;
 `;

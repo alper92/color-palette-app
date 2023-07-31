@@ -1,11 +1,10 @@
-import { useState } from "react";
 import { styled } from "styled-components";
 
 export default function ColorPicker({ name, onChoose, color }) {
   return (
     <Wrapper chosenColor={color}>
       <label htmlFor="color-picker">{name}</label>
-      <input
+      <InputColorSelector
         type="color"
         id="color-picker"
         name="color-picker"
@@ -14,7 +13,7 @@ export default function ColorPicker({ name, onChoose, color }) {
       />
 
       <label htmlFor="color-input"></label>
-      <input
+      <InputColorSelector
         type="text"
         id="color-input"
         name="color-input"
@@ -26,6 +25,11 @@ export default function ColorPicker({ name, onChoose, color }) {
 }
 
 const Wrapper = styled.form`
-  background-color: ${({ chosenColor }) => chosenColor};
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
+
+const InputColorSelector = styled.input`
   width: 100%;
 `;
