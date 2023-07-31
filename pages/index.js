@@ -1,12 +1,18 @@
 import { styled } from "styled-components";
 import ColorPickerForm from "../components/ColorPickerForm";
 import Preview from "../components/Preview";
+import { useState } from "react";
 
 export default function Home() {
+  const [theme, setTheme] = useState({
+    primary: "#ff00ff",
+    secondary: "#ffffff",
+    tertiary: "#000000",
+  });
   return (
     <Grid>
-      <ColorPickerForm />
-      <Preview />
+      <ColorPickerForm theme={theme} setTheme={setTheme} />
+      <Preview theme={theme} />
     </Grid>
   );
 }
