@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import ColorPicker from "./ColorPicker";
+import Clipboard from "./Clipboard";
 
 export default function ColorPickerForm({ theme, setTheme }) {
   return (
@@ -26,6 +27,7 @@ export default function ColorPickerForm({ theme, setTheme }) {
         }}
         name="tertiary"
       />
+      <Clipboard theme={theme} />
     </Wrapper>
   );
 }
