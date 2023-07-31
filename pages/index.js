@@ -5,9 +5,9 @@ import { useState } from "react";
 
 export default function Home() {
   const [theme, setTheme] = useState({
-    primary: "#ff00ff",
-    secondary: "#ffffff",
-    tertiary: "#000000",
+    primary: "#EEEEEE",
+    secondary: "#4E4FEB",
+    tertiary: "#068FFF",
   });
   return (
     <Grid>
