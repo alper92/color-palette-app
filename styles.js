@@ -22,7 +22,6 @@ section, article{
 }
 
 label{
-  font-weight: bold;
   letter-spacing: 2px;
   font-size: 0.825rem;
   text-transform: uppercase;
