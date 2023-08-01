@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export default function ColorPicker({ name, onChoose, color }) {
   return (
-    <Wrapper chosenColor={color}>
+    <Wrapper>
       <label htmlFor="color-picker">{name}</label>
       <InputColorSelector
         type="color"

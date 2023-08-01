@@ -17,12 +17,10 @@ export default function Clipboard({ theme }) {
 
   return (
     <>
-      <Board>
-        {clipboardValue}
-        <Button onClick={handleClipboardValue} theme={theme}>
-          {toggle ? "copy code" : "copied!"}
-        </Button>
-      </Board>
+      <Board>{clipboardValue}</Board>
+      <Button onClick={handleClipboardValue} theme={theme}>
+        {toggle ? "copy code" : "copied!"}
+      </Button>
     </>
   );
 }
@@ -34,14 +32,10 @@ const Board = styled.pre`
   color: grey;
   background-color: rgb(40, 44, 52);
   border-radius: 5px;
-  position: relative;
 `;
 
 const Button = styled.button`
-  position: absolute;
   background-color: ${({ theme }) => theme.secondary};
-  top: 10px;
-  right: 10px;
   font-size: 1rem;
   border: none;
   color: white;
