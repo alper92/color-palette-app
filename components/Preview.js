@@ -3,6 +3,8 @@ import { styled } from "styled-components";
 import data from "./db/data";
 import dataArtpieces from "./db/dataArtpieces";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 export default function Preview({ theme }) {
   const [previewElement, setPreviewElement] = useState("Card");
@@ -56,6 +58,21 @@ export default function Preview({ theme }) {
             </GalleryCard>
           ))}
         </GalleryWrapper>
+      )}
+      {previewElement === "Exhibitions" && (
+        <ExhibitionsWrapper>
+          {dataArtpieces.map(({ word, date, place, sentence, image }) => (
+            <Exhibition key={word}>
+              <PlaceDate>
+                <StyledExhibitionImage src={image} width={60} height={60} />
+                {date} @ {place}
+                <StyledExhibitionButton>
+                  <FontAwesomeIcon icon={faLocationDot} />
+                </StyledExhibitionButton>
+              </PlaceDate>
+            </Exhibition>
+          ))}
+        </ExhibitionsWrapper>
       )}
     </Wrapper>
   );
@@ -147,4 +164,40 @@ const GalleryWrapper = styled.div`
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
+`;
+
+const ExhibitionsWrapper = styled.ul`
+  list-style-type: none;
+`;
+
+const Exhibition = styled.li`
+  width: 100%;
+  max-width: 50%;
+  margin: 1rem 0;
+`;
+
+const StyledExhibitionImage = styled(Image)`
+  border-radius: 50%;
+  border: 4px solid var(--secondary);
+`;
+
+const PlaceDate = styled.p`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--primary);
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+`;
+
+const StyledExhibitionButton = styled.button`
+  background: var(--tertiary);
+  padding: 0.5rem;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
 `;

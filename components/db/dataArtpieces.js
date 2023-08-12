@@ -5,10 +5,11 @@ const chance = new Chance();
 const dataArtpieces = [
   {
     image: "/assets/kempten.jpg",
-    name: chance.sentence({ words: 4 }),
+    name: chance.sentence({ words: 5 }),
     description: chance.paragraph(),
     category: chance.word({ syllables: 4 }).toUpperCase(),
     date: chance.date({ string: true, american: false }),
+    place: chance.address(),
     slug: chance.word({ syllables: 3 }).toUpperCase(),
   },
   {
@@ -17,6 +18,7 @@ const dataArtpieces = [
     description: chance.paragraph(),
     category: chance.word({ syllables: 4 }).toUpperCase(),
     date: chance.date({ string: true, american: false }),
+    place: chance.address(),
     word: chance.word({ syllables: 3 }).toUpperCase(),
   },
   {
@@ -25,6 +27,7 @@ const dataArtpieces = [
     description: chance.paragraph(),
     category: chance.word({ syllables: 4 }).toUpperCase(),
     date: chance.date({ string: true, american: false }),
+    place: chance.address(),
     word: chance.word({ syllables: 3 }).toUpperCase(),
   },
   {
@@ -33,6 +36,7 @@ const dataArtpieces = [
     description: chance.paragraph(),
     category: chance.word({ syllables: 4 }).toUpperCase(),
     date: chance.date({ string: true, american: false }),
+    place: chance.address(),
     word: chance.word({ syllables: 3 }).toUpperCase(),
   },
   {
@@ -41,6 +45,7 @@ const dataArtpieces = [
     description: chance.paragraph(),
     category: chance.word({ syllables: 4 }).toUpperCase(),
     date: chance.date({ string: true, american: false }),
+    place: chance.address(),
     word: chance.word({ syllables: 3 }).toUpperCase(),
   },
   {
@@ -49,6 +54,7 @@ const dataArtpieces = [
     description: chance.paragraph(),
     category: chance.word({ syllables: 4 }).toUpperCase(),
     date: chance.date({ string: true, american: false }),
+    place: chance.address(),
     word: chance.word({ syllables: 3 }).toUpperCase(),
   },
 ];
