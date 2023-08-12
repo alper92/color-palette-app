@@ -1,47 +1,62 @@
+import { useState } from "react";
 import { styled } from "styled-components";
+import data from "./db/data";
+import dataArtpieces from "./db/dataArtpieces";
+import Image from "next/image";
 
 export default function Preview({ theme }) {
+  const [previewElement, setPreviewElement] = useState("Card");
+
   return (
     <Wrapper theme={theme}>
       <h2>Preview</h2>
       <span>
-        <PreviewButton>Preview 1</PreviewButton>
-        <PreviewButton>Preview 2</PreviewButton>
-        <PreviewButton>Preview 3</PreviewButton>
+        <PreviewButton onClick={() => setPreviewElement("Card")}>
+          Card
+        </PreviewButton>
+        <PreviewButton onClick={() => setPreviewElement("Artpieces")}>
+          Artpieces
+        </PreviewButton>
+        <PreviewButton onClick={() => setPreviewElement("Exhibitions")}>
+          Exhibitions
+        </PreviewButton>
       </span>
-      <Card>
-        <h3>Title</h3>
-        <Paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Paragraph>
-        <Button>Button</Button>
-        <ButtonHover>Hover Color</ButtonHover>
-      </Card>
-      {/* <Card>
-        <h3>Title</h3>
-        <Paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Paragraph>
-        <Button>Button</Button>
-        <ButtonHover>Hover Color</ButtonHover>
-      </Card>
-       <Card>
-        <h3>Title</h3>
-        <Paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Paragraph>
-        <Button>Button</Button>
-        <ButtonHover>Hover Color</ButtonHover>
-      </Card> */}
+      <div></div>
+      {previewElement === "Card" && (
+        <Card>
+          <h3>Title</h3>
+          <Paragraph>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+            Lorem ipsum dolor sit amet.
+          </Paragraph>
+          <Button>Button</Button>
+          <ButtonHover>Hover Color</ButtonHover>
+        </Card>
+      )}
+      {previewElement === "Artpieces" && (
+        <GalleryWrapper>
+          {dataArtpieces.map(({ slug, image, name, date }) => (
+            <GalleryCard key={slug}>
+              <ImageWrapper>
+                <StyledImage
+                  src={image}
+                  alt="image"
+                  width={1000}
+                  height={1000}
+                />
+                <Caption>
+                  <q>{name}</q>
+                  <b>{date}</b>
+                </Caption>
+              </ImageWrapper>
+              <Button>SEE MORE</Button>
+            </GalleryCard>
+          ))}
+        </GalleryWrapper>
+      )}
     </Wrapper>
   );
 }
@@ -100,4 +115,36 @@ const ButtonHover = styled.button`
   border-radius: 5px;
   background-color: var(--tertiary);
   color: var(--primary);
+`;
+
+const GalleryCard = styled.article`
+  padding: 1rem;
+  background-color: var(--primary);
+  height: fit-content;
+`;
+
+const ImageWrapper = styled.figure`
+  margin-bottom: 1rem;
+`;
+
+const StyledImage = styled(Image)`
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+`;
+
+const Caption = styled.figcaption`
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+`;
+
+const GalleryWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 4rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
 `;
