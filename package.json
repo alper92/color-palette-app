@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "color-convert": "^2.0.1",
     "next": "13.4.12",
     "react": "18.2.0",
+    "react-color": "^2.19.3",
     "react-dom": "18.2.0",
     "styled-components": "^6.0.5"
   },

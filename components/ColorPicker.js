@@ -19,6 +19,7 @@ export default function ColorPicker({ name, onChoose, color }) {
         name="color-input"
         value={color}
         onChange={(event) => onChoose(event.target.value)}
+        disabled
       />
     </Wrapper>
   );
@@ -27,9 +28,9 @@ export default function ColorPicker({ name, onChoose, color }) {
 const Wrapper = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.2rem;
 `;
 
 const InputColorSelector = styled.input`
-  width: 100%;
+  width: auto;
 `;
