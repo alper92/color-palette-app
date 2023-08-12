@@ -20,7 +20,7 @@ export default function ColorPickerForm({ theme, setTheme }) {
 
   return (
     <Wrapper>
-      <h2>Select colors</h2>
+      <h2>Select</h2>
       <ColorPicker
         color={theme.primary}
         onChoose={(newValue) => {
@@ -65,7 +65,7 @@ const StyledSliderPicker = styled(SliderPicker)`
   .hue-horizontal {
     display: none;
   }
-  margin-top: -1.5rem;
+  margin-top: -2rem;
 `;
 
 const Wrapper = styled.section`

@@ -48,6 +48,7 @@ export default function Preview({ theme }) {
 
 const Wrapper = styled.section`
   height: fit-content;
+  min-width: 320px;
   display: flex;
   flex-direction: column;
   gap: 1rem;

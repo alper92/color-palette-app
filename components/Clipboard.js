@@ -30,7 +30,7 @@ const Board = styled.pre`
   font-size: 0.9rem;
   font-style: italic;
   font-family: "Courier New";
-  color: grey;
+  color: white;
   background-color: rgb(40, 44, 52);
   border-radius: 5px;
   border: solid 2px ${({ theme }) => theme.secondary};

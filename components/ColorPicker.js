@@ -5,6 +5,7 @@ export default function ColorPicker({ name, onChoose, color }) {
     <Wrapper>
       <label htmlFor="color-picker">{name}</label>
       <InputColorSelector
+        aria-label="select a color"
         type="color"
         id="color-picker"
         name="color-picker"
@@ -14,12 +15,12 @@ export default function ColorPicker({ name, onChoose, color }) {
 
       <label htmlFor="color-input"></label>
       <InputColorSelector
+        aria-label="type in a hex color in hex"
         type="text"
         id="color-input"
         name="color-input"
         value={color}
         onChange={(event) => onChoose(event.target.value)}
-        disabled
       />
     </Wrapper>
   );
@@ -33,4 +34,8 @@ const Wrapper = styled.form`
 
 const InputColorSelector = styled.input`
   width: auto;
+  height: 2rem;
+  text-align: center;
+  border: none;
+  background-color: transparent;
 `;
