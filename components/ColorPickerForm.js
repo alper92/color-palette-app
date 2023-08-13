@@ -36,11 +36,6 @@ export default function ColorPickerForm({ theme, setTheme }) {
         }}
         name="secondary color"
       />
-      <CirclePicker
-        width="auto"
-        color={theme.secondary}
-        onChangeComplete={handleChangeCompleteSecondary}
-      />
       <Divider />
       <ColorPicker
         color={theme.tertiary}
@@ -48,6 +43,12 @@ export default function ColorPickerForm({ theme, setTheme }) {
           setTheme({ ...theme, tertiary: newValue });
         }}
         name="tertiary color"
+      />
+      <p>Fast Picker:</p>
+      <CirclePicker
+        width="auto"
+        color={theme.secondary}
+        onChangeComplete={handleChangeCompleteSecondary}
       />
       <StyledSliderPicker
         width="auto"
@@ -65,7 +66,7 @@ const StyledSliderPicker = styled(SliderPicker)`
   .hue-horizontal {
     display: none;
   }
-  margin-top: -2rem;
+  margin-top: -1rem;
 `;
 
 const Wrapper = styled.section`
