@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCopy, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 
 export default function Clipboard({ theme }) {
-  const [toggle, setToggle] = useState(true);
+  const [copy, setCopy] = useState(true);
 
   const clipboardValue = `:root {
   --primary-color: ${theme.primary};
@@ -12,20 +14,35 @@ export default function Clipboard({ theme }) {
 
   function handleClipboardValue() {
     navigator.clipboard.writeText(clipboardValue);
-    setToggle(!toggle);
+    setCopy(!copy);
   }
 
+  useEffect(() => {
+    if (!copy) {
+      const timeOut = setTimeout(() => {
+        setCopy(true);
+      }, 3000);
+
+      return () => clearTimeout(timeOut);
+    }
+  }, [copy]);
+
   return (
-    <>
-      <Button onClick={handleClipboardValue} theme={theme}>
-        {toggle ? "copy code" : "copied!"}
-      </Button>
-      <Board theme={theme}>{clipboardValue}</Board>
-    </>
+    <Board theme={theme}>
+      {clipboardValue}
+      <ClipboardButton onClick={handleClipboardValue} theme={theme}>
+        {copy ? (
+          <FontAwesomeIcon icon={faCopy} />
+        ) : (
+          <FontAwesomeIcon icon={faCheck} />
+        )}
+      </ClipboardButton>
+    </Board>
   );
 }
 
 const Board = styled.pre`
+  position: relative;
   padding: 0.5rem;
   font-size: 0.9rem;
   font-style: italic;
@@ -39,14 +56,13 @@ const Board = styled.pre`
   }
 `;
 
-const Button = styled.button`
-  background-color: ${({ theme }) => theme.secondary};
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  border: none;
+const ClipboardButton = styled.button`
+  position: absolute;
+  font-size: 1rem;
+  margin: 0.2rem;
+  top: 0;
+  right: 0;
   color: white;
-  font-weight: bolder;
-  padding: 0.4rem;
-  border-radius: 5px;
-  cursor: pointer;
+  border: none;
+  background-color: transparent;
 `;

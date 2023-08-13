@@ -6,9 +6,9 @@ import Head from "next/head";
 
 export default function Home() {
   const [theme, setTheme] = useState({
-    primary: "#EEEEEE",
-    secondary: "#673AB7",
-    tertiary: "#4D2D86",
+    primary: "#eeeeee",
+    secondary: "#673ab7",
+    tertiary: "#4d2d86",
   });
   return (
     <Grid>
