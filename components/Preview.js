@@ -168,11 +168,11 @@ const GalleryWrapper = styled.div`
 
 const ExhibitionsWrapper = styled.ul`
   list-style-type: none;
+  width: 100%;
+  max-width: 390px;
 `;
 
 const Exhibition = styled.li`
-  width: 100%;
-  max-width: 50%;
   margin: 1rem 0;
 `;
 
