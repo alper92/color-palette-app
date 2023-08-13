@@ -159,7 +159,7 @@ const Caption = styled.figcaption`
 
 const GalleryWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-gap: 4rem;
   width: 100%;
   max-width: 1280px;
