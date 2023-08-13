@@ -9,7 +9,6 @@ export default createGlobalStyle`
 
 html,
 body {
-
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: #ffffff;
@@ -22,9 +21,10 @@ section, article{
 }
 
 label{
-  letter-spacing: 2px;
-  font-size: 0.825rem;
+  letter-spacing: 1px;
+  font-size: 1rem;
   text-transform: uppercase;
+  font-weight: bold;
 }
 
 a {
@@ -39,9 +39,4 @@ h1 {
 h2 {
   font-size: 1.5rem;
 }
-
-p {
-  margin: 1rem 0;
-}
-
 `;
